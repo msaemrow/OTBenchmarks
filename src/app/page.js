@@ -6,6 +6,8 @@ import OneMile from "@/components/Benchmarks/OneMile";
 import TwelveMinute from "@/components/Benchmarks/TwelveMinute";
 import CatchMeIfYouCan from "@/components/Benchmarks/CatchMeIfYouCan";
 import Row2000Meter from "@/components/Benchmarks/Row2000Meter";
+import Row500Meter from "@/components/Benchmarks/Row500Meter";
+import OrangeEverest from "@/components/Benchmarks/OrangeEverest";
 
 export default function Home() {
   const [benchmark, setBenchmark] = useState("");
@@ -20,6 +22,10 @@ export default function Home() {
         return <CatchMeIfYouCan />;
       case "2000 meter row":
         return <Row2000Meter />;
+      case "500 meter row":
+        return <Row500Meter />;
+      case "Orange Everest":
+        return <OrangeEverest />;
       default:
         return <p>Select a benchmark</p>;
     }

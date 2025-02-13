@@ -5,30 +5,28 @@ export default function Row2000Meter() {
   const [splitTimes, setSplitTimes] = useState({
     first: "",
     second: "",
-    third: "",
-    fourth: "",
+    last: "",
   });
   const [totalTime, setTotalTime] = useState("0");
-  //Calculate Quarter Distance
-  //Get input
-  //Split input at the colon
-  //If no colon show error message
-  //Mulitply minutes by 60 and add to seconds
-  //Add this to total time
-  //Repeat for each section
-  //This assumes that a quarter is 500 meters
+
   const addSplitTimes = (splitTimes) => {
     let totalTime = 0;
-    Object.values(splitTimes).map((time) => {
-      const minutesSeconds = time.split(":");
+    Object.entries(splitTimes).forEach(([key, value]) => {
+      const minutesSeconds = value.split(":");
       const minutes = Number(minutesSeconds[0]) * 60;
       const seconds = Number(minutesSeconds[1]);
-      totalTime += minutes;
-      totalTime += seconds;
+      let splitTimeInSeconds = minutes + seconds;
+      if (key !== "last") {
+        let time = (200 / 500) * splitTimeInSeconds;
+        totalTime += time;
+      } else if (key === "last") {
+        let time = (100 / 500) * splitTimeInSeconds;
+        totalTime += time;
+      }
     });
     console.log(totalTime);
     const minutes = Math.floor(totalTime / 60);
-    const seconds = totalTime % 60;
+    const seconds = Math.floor(totalTime % 60);
     const formattedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     if (Number.isNaN(minutes) || Number.isNaN(seconds)) {
       return "Enter a split time to see your estimate finish time";
@@ -40,8 +38,7 @@ export default function Row2000Meter() {
     setSplitTimes({
       first: startingPace,
       second: startingPace,
-      third: startingPace,
-      fourth: startingPace,
+      last: startingPace,
     });
   }, [startingPace]);
 
@@ -60,7 +57,7 @@ export default function Row2000Meter() {
 
   return (
     <div>
-      <h1>2000 Meter Row</h1>
+      <h1>500 Meter Row</h1>
       <div>
         <label>Set Starting Pace: </label>
         <input
@@ -72,7 +69,7 @@ export default function Row2000Meter() {
       </div>
       <div>
         <div>
-          <label>1st 500 Meters Split Time</label>
+          <label>1st 200 Meters Split Time</label>
           <input
             type="text"
             name="first"
@@ -82,7 +79,7 @@ export default function Row2000Meter() {
           />
         </div>
         <div>
-          <label>2nd 500 Meters Split Time</label>
+          <label>2nd 200 Meters Split Time</label>
           <input
             type="text"
             name="second"
@@ -92,23 +89,13 @@ export default function Row2000Meter() {
           />
         </div>
         <div>
-          <label>3rd 500 Meters Split Time</label>
+          <label>Last 100 Meters Split Time</label>
           <input
             type="text"
-            name="third"
+            name="last"
             placeholder="Format m:ss Example 1:55"
             onChange={changeSplitTime}
-            value={splitTimes.third}
-          />
-        </div>
-        <div>
-          <label>4th 500 Meters Split Time</label>
-          <input
-            type="text"
-            name="fourth"
-            placeholder="Format m:ss Example 1:55"
-            onChange={changeSplitTime}
-            value={splitTimes.fourth}
+            value={splitTimes.last}
           />
         </div>
         <div>
