@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10%;
+}
+
+.title {
+  text-align: center;
+}
+
+.totalDistance {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.speedInputContainer {
+  display: flex;
+  flex-direction: colum;
+  justify-content: space-evenly;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.speedLabel {
+  min-width: 75px;
+}
+
+.speedInput {
+  padding: 3px;
+  margin-left: 5px;
+  width: 60px;
+  text-align: center;
+}
