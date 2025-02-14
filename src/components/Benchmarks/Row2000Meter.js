@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./Row2000Meter.module.css";
 
 export default function Row2000Meter() {
   const [startingPace, setStartingPace] = useState("");
@@ -9,14 +10,7 @@ export default function Row2000Meter() {
     fourth: "",
   });
   const [totalTime, setTotalTime] = useState("0");
-  //Calculate Quarter Distance
-  //Get input
-  //Split input at the colon
-  //If no colon show error message
-  //Mulitply minutes by 60 and add to seconds
-  //Add this to total time
-  //Repeat for each section
-  //This assumes that a quarter is 500 meters
+
   const addSplitTimes = (splitTimes) => {
     let totalTime = 0;
     Object.values(splitTimes).map((time) => {
@@ -59,60 +53,64 @@ export default function Row2000Meter() {
   }, [startingPace, splitTimes]);
 
   return (
-    <div>
-      <h1>2000 Meter Row</h1>
-      <div>
-        <label>Set Starting Pace: </label>
+    <div className={styles.container}>
+      <h1 className={styles.title}>2000 Meter Row</h1>
+      <h2 className={styles.finishTime}>{totalTime}</h2>
+
+      <div className={styles.inputContainer}>
+        <label className={styles.label}>Set Starting Pace: </label>
         <input
+          className={styles.input}
           type="text"
-          placeholder="Format m:ss Example 1:55"
+          placeholder="Format m:ss"
           value={startingPace}
           onChange={(e) => setStartingPace(e.target.value)}
         />
       </div>
-      <div>
-        <div>
-          <label>1st 500 Meters Split Time</label>
+      <div className={styles.quarterInputsContainer}>
+        <div className={styles.inputContainer}>
+          <label className={styles.label}>1st 500 Meters Split Time</label>
           <input
+            className={styles.input}
             type="text"
             name="first"
-            placeholder="Format m:ss Example 1:55"
+            placeholder="Format m:ss"
             onChange={changeSplitTime}
             value={splitTimes.first}
           />
         </div>
-        <div>
-          <label>2nd 500 Meters Split Time</label>
+        <div className={styles.inputContainer}>
+          <label className={styles.label}>2nd 500 Meters Split Time</label>
           <input
+            className={styles.input}
             type="text"
             name="second"
-            placeholder="Format m:ss Example 1:55"
+            placeholder="Format m:ss"
             onChange={changeSplitTime}
             value={splitTimes.second}
           />
         </div>
-        <div>
-          <label>3rd 500 Meters Split Time</label>
+        <div className={styles.inputContainer}>
+          <label className={styles.label}>3rd 500 Meters Split Time</label>
           <input
+            className={styles.input}
             type="text"
             name="third"
-            placeholder="Format m:ss Example 1:55"
+            placeholder="Format m:ss"
             onChange={changeSplitTime}
             value={splitTimes.third}
           />
         </div>
-        <div>
-          <label>4th 500 Meters Split Time</label>
+        <div className={styles.inputContainer}>
+          <label className={styles.label}>4th 500 Meters Split Time</label>
           <input
+            className={styles.input}
             type="text"
             name="fourth"
-            placeholder="Format m:ss Example 1:55"
+            placeholder="Format m:ss"
             onChange={changeSplitTime}
             value={splitTimes.fourth}
           />
-        </div>
-        <div>
-          <h2>{totalTime}</h2>
         </div>
       </div>
     </div>

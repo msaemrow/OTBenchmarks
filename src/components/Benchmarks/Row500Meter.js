@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import styles from "./Row500Meter.module.css";
 
-export default function Row2000Meter() {
+export default function Row500Meter() {
   const [startingPace, setStartingPace] = useState("");
   const [splitTimes, setSplitTimes] = useState({
     first: "",
@@ -31,7 +32,7 @@ export default function Row2000Meter() {
     if (Number.isNaN(minutes) || Number.isNaN(seconds)) {
       return "Enter a split time to see your estimate finish time";
     }
-    return `Benchmark Time: ${minutes}:${formattedSeconds}`;
+    return `Estimated Finish: ${minutes}:${formattedSeconds}`;
   };
 
   useEffect(() => {
@@ -56,50 +57,53 @@ export default function Row2000Meter() {
   }, [startingPace, splitTimes]);
 
   return (
-    <div>
-      <h1>500 Meter Row</h1>
-      <div>
-        <label>Set Starting Pace: </label>
+    <div className={styles.container}>
+      <h1 className={styles.title}>500 Meter Row</h1>
+      <h2 className={styles.finishTime}>{totalTime}</h2>
+
+      <div className={styles.inputContainer}>
+        <label className={styles.label}>Set Starting Pace: </label>
         <input
+          className={styles.input}
           type="text"
-          placeholder="Format m:ss Example 1:55"
+          placeholder="Format m:ss"
           value={startingPace}
           onChange={(e) => setStartingPace(e.target.value)}
         />
       </div>
       <div>
-        <div>
-          <label>1st 200 Meters Split Time</label>
+        <div className={styles.inputContainer}>
+          <label className={styles.label}>1st 200 Meters Split Time</label>
           <input
+            className={styles.input}
             type="text"
             name="first"
-            placeholder="Format m:ss Example 1:55"
+            placeholder="Format m:ss"
             onChange={changeSplitTime}
             value={splitTimes.first}
           />
         </div>
-        <div>
-          <label>2nd 200 Meters Split Time</label>
+        <div className={styles.inputContainer}>
+          <label className={styles.label}>2nd 200 Meters Split Time</label>
           <input
+            className={styles.input}
             type="text"
             name="second"
-            placeholder="Format m:ss Example 1:55"
+            placeholder="Format m:ss"
             onChange={changeSplitTime}
             value={splitTimes.second}
           />
         </div>
-        <div>
-          <label>Last 100 Meters Split Time</label>
+        <div className={styles.inputContainer}>
+          <label className={styles.label}>Last 100 Meters Split Time</label>
           <input
+            className={styles.input}
             type="text"
             name="last"
-            placeholder="Format m:ss Example 1:55"
+            placeholder="Format m:ss"
             onChange={changeSplitTime}
             value={splitTimes.last}
           />
-        </div>
-        <div>
-          <h2>{totalTime}</h2>
         </div>
       </div>
     </div>

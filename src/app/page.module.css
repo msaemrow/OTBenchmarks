@@ -1,17 +1,35 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  min-height: 100svh;
-  padding: 20px 10px;
-  gap: 64px;
-  font-family: var(--quicksand);
+  padding: 2% 7%;
+  height: 100vh;
 }
 
 .title {
   text-align: center;
+  color: var(--header-text);
+}
+
+.benchmarkContainer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.themeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: gray;
+  color: var(--body-text);
+  border: none;
+  padding: 5px 5px;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  justify-self: center;
+}
+
+.themeButton:hover {
+  background-color: #ff5500; /* Darker shade of orange */
 }
