@@ -52,9 +52,7 @@ export default function OneMile() {
           <h2 className={styles.title}>Pick It and Stick It</h2>
           <h3 className={styles.finishTime}>Estimate 1 Mile Time</h3>
 
-          <p className={styles.finishTime}>
-            {time1?.minutes}:{time1?.seconds}
-          </p>
+          <p className={styles.finishTime}>{time1?.mileTime}</p>
           <input
             type="number"
             value={speed1}
