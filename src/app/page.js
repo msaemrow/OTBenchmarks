@@ -47,7 +47,17 @@ export default function Home() {
       case "Orange Everest":
         return <OrangeEverest />;
       default:
-        return <h2>Select a benchmark from the above menu</h2>;
+        return (
+          <div className={styles.defaultMessageContainer}>
+            <h2 className={styles.defaulMessage}>
+              Select a benchmark from the menu to calculate your benchmark!
+            </h2>
+            <p className={styles.disclaimer}>
+              All toal distances and finish times may have vary up to 3% due to
+              treadmill ramp up time.
+            </p>
+          </div>
+        );
     }
   };
 

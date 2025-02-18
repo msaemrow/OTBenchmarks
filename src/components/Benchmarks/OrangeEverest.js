@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import styles from "./OrangeEverest.module.css";
+
 export default function () {
   const orangeEverest = [
     [1, 2],
@@ -29,6 +31,7 @@ export default function () {
 
   const [speeds, setSpeeds] = useState(new Array(orangeEverest.length).fill(0));
   const [startingSpeed, setStartingSpeed] = useState(0);
+  const [totalDistance, setTotalDistance] = useState(0);
 
   const handleSpeedChange = (index, value) => {
     const newSpeeds = [...speeds];
@@ -36,7 +39,23 @@ export default function () {
     setSpeeds(newSpeeds); // Update state
   };
 
+  const calculateTotalDistance = (speeds) => {
+    let totalDistance = 0;
+    for (let speed of speeds) {
+      const distance = Math.round((Number(speed) / 60) * 1000) / 1000;
+      totalDistance += distance;
+    }
+    return Math.floor(totalDistance * 1000) / 1000;
+  };
+
   useEffect(() => {
+    setTotalDistance(calculateTotalDistance(speeds));
+  }, [speeds]);
+
+  useEffect(() => {
+    if (startingSpeed === 0) {
+      return;
+    }
     let newSpeeds = [];
     let currentSpeed = startingSpeed;
 
@@ -59,13 +78,20 @@ export default function () {
   }, [startingSpeed]);
 
   return (
-    <div>
-      <h1>Orange Everest</h1>
-      <input
-        value={startingSpeed}
-        type="number"
-        onChange={(e) => setStartingSpeed(e.target.value)}
-      />
+    <div className={styles.container}>
+      <h1 className={styles.title}>Orange Everest</h1>
+      <p className={styles.finishTime}>Estimate Distance: {totalDistance}</p>
+      <div className={styles.startingSpeed}>
+        <h3 className={styles.smallTitle}>Starting Speed: </h3>
+        <input
+          value={startingSpeed}
+          type="number"
+          onChange={(e) => setStartingSpeed(e.target.value)}
+          className={styles.input}
+          step="0.1"
+        />
+      </div>
+
       <div>
         <table>
           <thead>
@@ -86,6 +112,7 @@ export default function () {
                     type="number"
                     step="0.1"
                     onChange={(e) => handleSpeedChange(index, e.target.value)}
+                    className={styles.input}
                   />
                 </td>
               </tr>

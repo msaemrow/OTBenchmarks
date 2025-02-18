@@ -49,24 +49,29 @@ export default function OneMile() {
       <div className={styles.timeContainer}>
         {" "}
         <div className={styles.mileMethodContainer}>
-          <h2>Pick it and stick it</h2>
+          <h2 className={styles.title}>Pick It and Stick It</h2>
+          <h3 className={styles.finishTime}>Estimate 1 Mile Time</h3>
+
+          <p className={styles.finishTime}>
+            {time1?.minutes}:{time1?.seconds}
+          </p>
           <input
             type="number"
             value={speed1}
             onChange={(e) => setSpeed1(e.target.value)}
             placeholder="Enter Speed"
+            className={styles.input}
+            step="0.1"
           />
-          <h3>Estimate 1 Mile Time</h3>
-          <p>
-            {time1?.minutes} minutes {time1?.seconds} seconds
-          </p>
         </div>
         <div className={styles.mileMethodContainer}>
-          <h2>Steady Increase</h2>
+          <h2 className={styles.title}>Steady Increase</h2>
+          <h3 className={styles.finishTime}>Estimated 1 Mile Time</h3>
+          <p className={styles.finishTime}>{mileTime} </p>
           <div>
-            <label>Starting Speed (mph):</label>
+            <label className={styles.label}>Starting Speed (mph):</label>
             <input
-              className={styles.speedInput}
+              className={styles.input}
               type="number"
               step="0.1"
               value={startingSpeed}
@@ -76,9 +81,9 @@ export default function OneMile() {
           <div>
             {minuteSpeeds.map((speed, index) => (
               <div key={index} className={styles.minuteInput}>
-                <label className={styles.speedLabel}>Minute {index + 1}</label>
+                <label className={styles.label}>Minute {index + 1}:</label>
                 <input
-                  className={styles.speedInput}
+                  className={styles.input}
                   type="number"
                   step="0.1"
                   value={speed}
@@ -87,8 +92,6 @@ export default function OneMile() {
               </div>
             ))}
           </div>
-          <h3>Estimate 1 Mile Time</h3>
-          <p>{mileTime}</p>
         </div>
       </div>
     </div>

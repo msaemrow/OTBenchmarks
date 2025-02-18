@@ -36,31 +36,30 @@ export default function TwelveMinute() {
       <h3 className={styles.totalDistance}>
         Estimate Total Distance {totalDistance} miles
       </h3>
-      <div className={styles.speedInputContainer}>
-        <div className={styles.startingSpeed}>
-          <label className={styles.speedLabel}>Starting Speed (mph):</label>
-          <input
-            className={styles.speedInput}
-            type="number"
-            step="0.1"
-            value={startingSpeed}
-            onChange={(e) => setStartingSpeed(e.target.value)} // Handle starting speed input change
-          />
-        </div>
-        <div>
-          {speeds.map((speed, index) => (
-            <div key={index} className={styles.inputContainer}>
-              <label className={styles.speedLabel}>Minute {index + 1}: </label>
-              <input
-                className={styles.speedInput}
-                type="number"
-                step="0.1"
-                value={speed}
-                onChange={(e) => handleSpeedChange(index, e.target.value)}
-              />
-            </div>
-          ))}
-        </div>
+
+      <div className={styles.startingSpeed}>
+        <label className={styles.label}>Starting Speed (mph):</label>
+        <input
+          className={styles.input}
+          type="number"
+          step="0.1"
+          value={startingSpeed}
+          onChange={(e) => setStartingSpeed(e.target.value)} // Handle starting speed input change
+        />
+      </div>
+      <div>
+        {speeds.map((speed, index) => (
+          <div key={index} className={styles.inputContainer}>
+            <label className={styles.label}>Minute {index + 1}: </label>
+            <input
+              className={styles.input}
+              type="number"
+              step="0.1"
+              value={speed}
+              onChange={(e) => handleSpeedChange(index, e.target.value)}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

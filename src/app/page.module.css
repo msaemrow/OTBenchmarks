@@ -14,6 +14,15 @@
   justify-content: center;
 }
 
+.defaultMessageContainer {
+  margin-top: 10%;
+  min-height: 100px;
+}
+
+.disclaimer {
+  margin-top: 5px;
+  text-align: center;
+}
 .themeButton {
   position: absolute;
   top: 10px;

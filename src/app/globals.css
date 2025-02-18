@@ -14,10 +14,17 @@
   --button-hover-bg: #ff5500; /* Slightly darker orange for button hover */
   --link-color: rgb(255, 98, 0); /* Orange links */
   --link-hover-color: #ff5500; /* Darker orange for link hover */
+  --bg-color: #181818;
+  --text-color: #e0e0e0;
+  --table-header-text: white;
+  --header-bg: #333;
+  --row-alt-bg: #222;
+  --row-hover-bg: #444;
+  --border-color: #444;
 }
 
 [data-theme="light"] {
-  --background: white; /* Light background */
+  --background: rgb(222, 222, 222); /* Light background */
   --foreground: #f5f5f5; /* Slightly off-white for the foreground */
   --header-text: rgb(255, 98, 0); /* Orange for main text */
   --body-text: #333; /* Dark text for readability */
@@ -28,6 +35,13 @@
   --button-hover-bg: #ff5500; /* Slightly darker orange for button hover */
   --link-color: rgb(255, 98, 0); /* Orange links */
   --link-hover-color: #ff5500; /* Darker orange for link hover */
+  --bg-color: #ffffff;
+  --text-color: #222;
+  --table-header-text: white;
+  --header-bg: #222;
+  --row-alt-bg: #f8f8f8;
+  --row-hover-bg: #ddd;
+  --border-color: #ddd;
 }
 
 html,

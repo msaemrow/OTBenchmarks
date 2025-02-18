@@ -1,2 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
 
+.title {
+  color: var(--header-text);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
 
+.smallTitle {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+.startingSpeed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.finishTime {
+  color: var(--body-text);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.inputContainer {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.label {
+  color: var(--body-text);
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.input {
+  color: var(--header-text);
+  padding: 4px 6px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: 73px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 15px var(--highlight-color);
+}
+
+.input::placeholder {
+  color: var(--placeholder-text);
+}

@@ -1,3 +1,5 @@
+import styles from "./CatchMeIfYouCan.module.css";
+
 export default function CatchMeIfYouCan() {
   const timingGates = [
     [2, 0.15, 4.5],
@@ -14,23 +16,23 @@ export default function CatchMeIfYouCan() {
     [20, 2.8, 8.4],
   ];
   return (
-    <div>
-      <h1>Catch Me If You Can</h1>
-      <div>
-        <table>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Catch Me If You Can</h1>
+      <div className={styles.tableContainer}>
+        <table className={styles.table}>
           <thead>
-            <tr>
-              <td>Minute</td>
-              <td>Min Distance</td>
-              <td>Avg Speed To Reach</td>
+            <tr className={styles.headerRow}>
+              <td className={styles.headerData}>Minute</td>
+              <td className={styles.headerData}>Min Distance</td>
+              <td className={styles.headerData}>Avg Speed To Reach</td>
             </tr>
           </thead>
           <tbody>
             {timingGates.map((gate, index) => (
-              <tr key={index}>
-                <td>{gate[0]}</td>
-                <td>{gate[1]}</td>
-                <td>{gate[2]}</td>
+              <tr key={index} className={styles.tableRow}>
+                <td className={styles.tableData}>{gate[0]}</td>
+                <td className={styles.tableData}>{gate[1]}</td>
+                <td className={styles.tableData}>{gate[2]}</td>
               </tr>
             ))}
           </tbody>
